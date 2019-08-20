@@ -72,11 +72,26 @@
                     }];
                 document.addEventListener("DOMContentLoaded", function(){
                     for(let i = 0; i < data.length; i++){
-                        document.getElementsByClassName("container")[0].innerHTML += '<div class="box"> <h1>'+data[i].title+'</h1> <img src="'+data[i].poster+'" alt="'+data[i].title+'"> <h2> '+data[i].firstname+' '+data[i].lastname+' </h2> </div>'
+                       // document.getElementsByClassName("container")[0].innerHTML += '<div class="box"> <h1>'+data[i].title+'</h1> <img src="'+data[i].poster+'" alt="'+data[i].title+'"> <h2> '+data[i].firstname+' '+data[i].lastname+' </h2> </div>'
+                      /*
+                       document.getElementsByClassName("container")[0].innerHTML += document.getElementById("herotemp").innerHTML
+                                                                                    .replace("herotitle", data[i].title )
+                                                                                    .replace("herophoto", data[i].poster )
+                                                                                    .replace("herotitle", data[i].title )
+                                                                                    .replace("herofirstname", data[i].firstname )
+                                                                                    .replace("herolastname", data[i].lastname );
+                      */
+                       document
+                       .getElementsByClassName("container")[0]
+                       .innerHTML += `<div class="box"> 
+                                        <h1>${ data[i].title }</h1> 
+                                        <img src="${ data[i].poster }" alt="${ data[i].title }"> 
+                                        <h2> ${ data[i].firstname+' '+data[i].lastname }</h2> 
+                                       </div>`
                     }
                 })
     </script>
-   <style>
+    <style>
         .box{
             width: 200px;
             height: 260px;
@@ -103,5 +118,12 @@
 </head>
 <body>
     <div class="container"></div>
+    <template id="herotemp">
+        <div class="box"> 
+            <h1>herotitle</h1> 
+            <img src="herophoto" alt="herotitle"> 
+            <h2> herofirstname herolastname </h2> 
+        </div>
+    </template>
 </body>
 </html>
